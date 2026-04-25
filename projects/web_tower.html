@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --color-bg: #0a0a0c;
+            --color-bg: #ffffff;
             --color-text: #111827;
-            --color-primary: #1e3a8a; /* Deep Corporate Blue */
-            --color-secondary: #111827;
-            --color-accent: #1f2937;
+            --color-primary: #0047AB; 
+            --color-secondary: #f8fafc;
+            --color-accent: #e2e8f0;
         }
 
         body {
@@ -24,6 +24,22 @@
             margin: 0;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../assets/projects/web_tower/web_holding_cover_v2.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1; /* Très subtil pour l'immersion */
+            pointer-events: none;
+            z-index: -1;
         }
 
         .project-hero {
