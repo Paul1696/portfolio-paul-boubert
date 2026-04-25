@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paul Boubert - Architecte, Auteur & Concepteur Digital. Explorez mes projets d'architecture, mes livres et mes concepts d'applications.">
+    <title>Paul Boubert | Architecture & Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="loading">
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#home" class="logo">
+                    <span class="logo-text">PAUL</span>
+                    <span class="logo-dot"></span>
+                    <span class="logo-text">BOUBERT</span>
+                </a>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#home" class="nav-item">Accueil</a>
+                <a href="#projects" class="nav-item">Projets</a>
+                <a href="#about" class="nav-item">À Propos</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg-shapes">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-meta fade-in-up">
+                        <span class="meta-line"></span>
+                        <span class="meta-text">Portfolio Créatif</span>
+                    </div>
+                    <h1 class="hero-title fade-in-up" style="animation-delay: 0.2s">
+                        Bâtir des <span class="text-gradient">Espaces</span>,<br>
+                        Écrire des <span class="text-gradient">Mondes</span>.
+                    </h1>
+                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.4s">
+                        Assistant architecte & dessinateur projeteur. Je fusionne la technique du génie civil et la vision architecturale pour créer des projets concrets, de l'esquisse au chantier.
+                    </p>
+                    <div class="hero-actions fade-in-up" style="animation-delay: 0.6s">
+                        <a href="#projects" class="btn-main">
+                            <span class="btn-text">Explorer mes travaux</span>
+                            <span class="btn-icon"><i class="fas fa-chevron-right"></i></span>
+                        </a>
+                        <div class="scroll-indicator">
+                            <div class="mouse"></div>
+                            <span>Défiler</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Mes <span>Réalisations</span></h2>
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">Tous</button>
+                        <button class="filter-btn" data-filter="residentiel">Résidentiel</button>
+                        <button class="filter-btn" data-filter="commercial">Commercial</button>
+                        <button class="filter-btn" data-filter="rehabilitation">Réhabilitation</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card" data-category="commercial">
+                        <div class="project-image">
+                            <img src="assets/projects/web_tower/page_1.png" alt="Web Holding Tower">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Bureau / Tertiaire</span>
+                                <h3 class="project-name">Web Holding Tower</h3>
+                                <p class="project-desc">Une tour de verre R+15 emblématique à Douala, conçue pour l'efficacité énergétique et la modularité.</p>
+                                <a href="projects/web_tower.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="mixte">
+                        <div class="project-image">
+                            <img src="assets/projects/tonye/tonye_1.png" alt="Immeuble Tonye">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Usage Mixte</span>
+                                <h3 class="project-name">Immeuble Tonye</h3>
+                                <p class="project-desc">Immeuble R+4 alliant commerces et habitat de standing, avec un accent sur la végétalisation urbaine.</p>
+                                <a href="projects/tonye.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="commercial">
+                        <div class="project-image">
+                            <img src="assets/projects/workbox/workbox_1.png" alt="Workbox">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Commercial</span>
+                                <h3 class="project-name">Workbox</h3>
+                                <p class="project-desc">Agilité modulaire avec conteneurs maritimes et sur-toiture ventilée protectrice.</p>
+                                <a href="projects/workbox.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="residentiel">
+                        <div class="project-image">
+                            <img src="assets/projects/hunter/hunter_1.png" alt="Résidence Hunter">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Résidentiel</span>
+                                <h3 class="project-name">Résidence Hunter</h3>
+                                <p class="project-desc">Dépendance R+1 en conteneurs recyclés, fusionnant le métal industriel et les claustras en bois.</p>
+                                <a href="projects/hunter.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="rehabilitation">
+                        <div class="project-image">
+                            <img src="assets/projects/bicec/bicec_1.png" alt="Bicec Bafoussam">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Réhabilitation</span>
+                                <h3 class="project-name">Bicec Bafoussam</h3>
+                                <p class="project-desc">Réhabilitation d'une agence bancaire. Modernisation du «Look & Feel» selon la charte graphique BICEC.</p>
+                                <a href="projects/bicec.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="residentiel">
+                        <div class="project-image">
+                            <img src="assets/projects/oasis/oasis_1.png" alt="Résidence Oasis">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Résidentiel</span>
+                                <h3 class="project-name">Résidence Oasis</h3>
+                                <p class="project-desc">Complexe de 10 appartements à Kribi, conçu comme un îlot de fraîcheur autour d'un cœur d'îlot bleu.</p>
+                                <a href="projects/oasis.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="rehabilitation">
+                        <div class="project-image">
+                            <img src="assets/projects/boj/boj_2.png" alt="Le Bojolais">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Réhabilitation</span>
+                                <h3 class="project-name">Le Bojolais (BOJ)</h3>
+                                <p class="project-desc">Rénovation d'un restaurant emblématique à Douala, alliant esprit brasserie chic et design contemporain.</p>
+                                <a href="projects/boj.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="commercial">
+                        <div class="project-image">
+                            <img src="assets/projects/enem/enem_1.png" alt="Concession Enem">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Commercial</span>
+                                <h3 class="project-name">Concession Enem</h3>
+                                <p class="project-desc">Showroom et ateliers SITRAK à Douala. Façade monumentale bleue unifiée par une résille métallique technique.</p>
+                                <a href="projects/enem.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="residentiel">
+                        <div class="project-image">
+                            <img src="assets/projects/residence_h/residence_h_1.png" alt="Résidence H">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Résidentiel</span>
+                                <h3 class="project-name">Résidence H</h3>
+                                <p class="project-desc">Rénovation de luxe à Yaoundé. Style néo-classique avec touches de laiton et bois chaleureux.</p>
+                                <a href="projects/residence_h.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="residentiel">
+                        <div class="project-image">
+                            <img src="assets/projects/harmony/harmony_12.png" alt="Villa Harmony">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Résidentiel</span>
+                                <h3 class="project-name">Villa Harmony</h3>
+                                <p class="project-desc">Une demeure d'exception alliant minimalisme et sérénité, où les espaces intérieurs fusionnent avec la nature.</p>
+                                <a href="projects/harmony.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="rehabilitation">
+                        <div class="project-image">
+                            <img src="assets/projects/mbella/mbella_1.png" alt="Mbella Nfandena">
+                            <div class="project-info-overlay">
+                                <span class="project-category">Rénovation</span>
+                                <h3 class="project-name">Mbella Nfandena</h3>
+                                <p class="project-desc">Rénovation et aménagement intérieur d'exception, privilégiant une élégance intemporelle et un luxe discret.</p>
+                                <a href="projects/mbella.html" class="project-link">Découvrir <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-container">
+                        <div class="about-image-wrapper">
+                            <img src="profile_paul.jpg" alt="Paul Boubert">
+                        </div>
+                        <div class="experience-badge">
+                            <span class="years">5+</span>
+                            <span class="text">Années d'Expérience</span>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-title text-left">L'Architecte derrière <span>l'Écran</span></h2>
+                        <p class="lead">
+                            Transformer la vision en réalité technique, de l'esquisse à la coordination de projet.
+                        </p>
+                        <p>
+                            Mon expertise s'appuie sur une Licence en Génie Civil et cinq années d'expérience concrète en cabinet d'architecture (notamment BARLABARLA Architectes). Je me spécialise dans le dessin technique de précision (CAO), la gestion de projet et le contrôle de travaux.
+                        </p>
+                        <p>
+                            Je suis particulièrement motivé par la transition numérique du bâtiment et l'optimisation des processus. Je m'assure que chaque projet n'est pas seulement une réussite esthétique, mais qu'il est aussi techniquement juste, tout en respectant les contraintes et les délais.
+                        </p>
+                        
+                        <div class="expertise-grid">
+                            <div class="expertise-item">
+                                <i class="fas fa-drafting-compass"></i>
+                                <span>CAO & BIM</span>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="fas fa-cubes"></i>
+                                <span>Modélisation 3D</span>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Conception Durable</span>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span>Gestion de Projet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-card glass-morphism">
+                    <div class="contact-header">
+                        <h2>Prêt à bâtir <span>ensemble</span> ?</h2>
+                        <p>Que ce soit pour un projet architectural, une collaboration éditoriale ou une idée d'application innovante, ma porte est toujours ouverte.</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="mailto:contact@paulboubert.com" class="btn-main large">
+                            <span class="btn-text">Démarrer une conversation</span>
+                        </a>
+                        <div class="social-minimal">
+                            <a href="https://www.linkedin.com/in/paul-boubert-400b76181/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/237690715403" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.behance.net/boubert-portfolio" target="_blank" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paul Boubert. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

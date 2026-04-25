@@ -1,0 +1,246 @@
+/**
+ * Paul Boubert Portfolio - Premium Interactivity
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ===================================
+    // Custom Cursor
+    // ===================================
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+    const links = document.querySelectorAll('a, button, .filter-btn, .gallery-item, .btn-back');
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    let followerX = 0;
+    let followerY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Show cursor if it was hidden
+        if (cursor) cursor.style.opacity = '1';
+        if (follower) follower.style.opacity = '1';
+    });
+
+    const animate = () => {
+        // Smooth cursor follow
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        followerX += (mouseX - followerX) * 0.1;
+        followerY += (mouseY - followerY) * 0.1;
+
+        if (cursor) {
+            // Apply scale if hovering, otherwise scale(1)
+            const isHovering = follower?.style.width === '80px';
+            const scale = isHovering ? 1.5 : 1;
+            cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) scale(${scale})`;
+        }
+        if (follower) {
+            follower.style.transform = `translate3d(${followerX - 16}px, ${followerY - 16}px, 0)`;
+        }
+
+        requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Cursor hover effects using event delegation
+    const handleMouseEnter = (e) => {
+        const target = e.target.closest('a, button, .filter-btn, .gallery-item, .btn-back');
+        if (target) {
+            follower?.style.setProperty('width', '80px');
+            follower?.style.setProperty('height', '80px');
+            follower?.style.setProperty('background', 'rgba(212, 175, 55, 0.1)');
+            follower?.style.setProperty('border-color', 'transparent');
+        }
+    };
+
+    const handleMouseLeave = (e) => {
+        const target = e.target.closest('a, button, .filter-btn, .gallery-item, .btn-back');
+        if (target) {
+            follower?.style.setProperty('width', '40px');
+            follower?.style.setProperty('height', '40px');
+            follower?.style.setProperty('background', 'transparent');
+            follower?.style.setProperty('border-color', 'var(--color-primary)');
+        }
+    };
+
+    document.addEventListener('mouseover', handleMouseEnter);
+    document.addEventListener('mouseout', handleMouseLeave);
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+        if (cursor) cursor.style.opacity = '0';
+        if (follower) follower.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+        if (cursor) cursor.style.opacity = '1';
+        if (follower) follower.style.opacity = '1';
+    });
+
+    // ===================================
+    // Navbar Scroll Effect
+    // ===================================
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar?.classList.add('scrolled');
+        } else {
+            navbar?.classList.remove('scrolled');
+        }
+    });
+
+    // ===================================
+    // Mobile Menu Toggle
+    // ===================================
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle?.addEventListener('click', () => {
+        if (!navLinks) return;
+        navLinks.classList.toggle('active');
+        // Simple toggle for demonstration
+        if (navLinks.classList.contains('active')) {
+            navLinks.style.display = 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'fixed';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'var(--color-bg)';
+            navLinks.style.padding = '2rem';
+        } else {
+            navLinks.style.display = '';
+        }
+    });
+
+    // ===================================
+    // Project Filtering
+    // ===================================
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filter === 'all' || filter === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 400);
+                }
+            });
+        });
+    });
+
+    // ===================================
+    // Scroll Reveal Animation
+    // ===================================
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up, .project-card, .expertise-item').forEach(el => {
+        el.classList.add('fade-in-up');
+        observer.observe(el);
+    });
+
+    // ===================================
+    // Smooth Scroll for Nav Items
+    // ===================================
+    document.querySelectorAll('.nav-item').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = targetElement.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ===================================
+    // Magnetic Buttons
+    // ===================================
+    const magneticBtns = document.querySelectorAll('.btn-main');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', function(e) {
+            const position = this.getBoundingClientRect();
+            const x = e.pageX - position.left - position.width / 2;
+            const y = e.pageY - position.top - position.height / 2;
+
+            this.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+        });
+
+        btn.addEventListener('mouseout', function() {
+            this.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // ===================================
+    // Parallax Background Blobs
+    // ===================================
+    const blobs = document.querySelectorAll('.blob');
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        blobs.forEach((blob, index) => {
+            const speed = (index + 1) * 0.2;
+            blob.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+
+    // ===================================
+    // Loading State & Final Polish
+    // ===================================
+    window.addEventListener('load', () => {
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+        
+        // Initial reveal for hero
+        const heroElements = document.querySelectorAll('.hero-meta, .hero-title, .hero-subtitle, .hero-actions');
+        heroElements.forEach((el, i) => {
+            setTimeout(() => {
+                el.classList.add('visible');
+            }, i * 200);
+        });
+    });
+});
