@@ -60,11 +60,11 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/img/architect_bg_minimal.png');
+    background-image: url('assets/img/architect_bg_5.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.25; /* Minimaliste et très propre */
+    opacity: 0.3; /* 5 éléments précis et fins */
     pointer-events: none;
     z-index: -1;
     animation: backgroundMove 100s infinite linear;
