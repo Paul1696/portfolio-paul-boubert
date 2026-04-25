@@ -46,7 +46,7 @@ html {
 body {
     font-family: var(--font-body);
     color: var(--color-text-main);
-    background-color: var(--color-bg);
+    background-color: transparent; /* Permet de voir le ::before derrière */
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -64,7 +64,7 @@ body::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.15; /* Subtil sur fond blanc */
+    opacity: 0.4; /* Augmenté pour être bien visible */
     pointer-events: none;
     z-index: -1;
     animation: backgroundMove 100s infinite linear;
