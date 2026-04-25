@@ -466,8 +466,8 @@ h1, h2, h3, h4 {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 }
 
 .project-card {
@@ -531,15 +531,15 @@ h1, h2, h3, h4 {
 }
 
 .project-name {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .project-desc {
     color: var(--color-text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-    max-width: 400px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    max-width: 100%;
 }
 
 .project-link {
@@ -764,7 +764,8 @@ h1, h2, h3, h4 {
     }
     
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .about-grid {
@@ -794,6 +795,10 @@ h1, h2, h3, h4 {
     
     .contact-card {
         padding: 3rem 1.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
     
     .expertise-grid {
