@@ -433,10 +433,10 @@ h1, h2, h3, h4 {
 
 .category-heading {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 900;
-    margin-bottom: 4rem;
-    letter-spacing: -2px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
     color: var(--color-text-main);
     text-transform: uppercase;
     position: relative;
@@ -444,13 +444,7 @@ h1, h2, h3, h4 {
 }
 
 .category-heading::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background-color: var(--color-primary);
+    display: none;
 }
 
 .projects-grid {
