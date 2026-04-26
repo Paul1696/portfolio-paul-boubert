@@ -213,6 +213,7 @@ h1, h2, h3, h4 {
 .nav-links {
     display: flex;
     gap: 3rem;
+    align-items: center;
 }
 
 .nav-item {
@@ -241,6 +242,38 @@ h1, h2, h3, h4 {
 
 .nav-item:hover::after, .nav-item.active::after {
     width: 100%;
+}
+
+/* Blog Button Custom Design */
+.nav-blog-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #f1f4f8;
+    border-radius: 50%;
+    transition: var(--transition-mid);
+}
+
+.nav-blog-btn:hover {
+    background: #e1e8f0;
+    transform: translateY(-2px);
+}
+
+.blog-icon {
+    width: 38px;
+    height: auto;
+    color: #1a1a1a;
+}
+
+.blog-icon text {
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+}
+
+.blog-dot {
+    fill: #0056b3;
 }
 
 .menu-toggle {
