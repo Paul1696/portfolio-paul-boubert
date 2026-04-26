@@ -119,38 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===================================
-    // Project Filtering
+    // Project Animations (Optional)
     // ===================================
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const observerOptions = {
+        threshold: 0.1
+    };
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                
-                if (filter === 'all' || filter === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 400);
-                }
-            });
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
-    });
+    }, observerOptions);
+
+    projectCards.forEach(card => projectObserver.observe(card));
 
     // ===================================
     // Scroll Reveal Animation

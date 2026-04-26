@@ -419,49 +419,38 @@ h1, h2, h3, h4 {
 /* ===================================
    Projects Section
    =================================== */
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 5rem;
+.projects {
+    padding: 10rem 0;
 }
 
-.filter-controls {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
+.category-block {
+    margin-bottom: 12rem;
 }
 
-.filter-btn {
-    background: none;
-    border: none;
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
+.category-block:last-child {
+    margin-bottom: 0;
+}
+
+.category-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    margin-bottom: 4rem;
+    letter-spacing: -2px;
+    color: var(--color-text-main);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    padding-bottom: 5px;
     position: relative;
-    transition: var(--transition-mid);
+    display: inline-block;
 }
 
-.filter-btn::after {
+.category-heading::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 0;
-    width: 0;
-    height: 1px;
+    width: 60px;
+    height: 4px;
     background-color: var(--color-primary);
-    transition: var(--transition-mid);
-}
-
-.filter-btn.active {
-    color: var(--color-text-main);
-}
-
-.filter-btn.active::after {
-    width: 100%;
 }
 
 .projects-grid {

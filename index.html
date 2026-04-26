@@ -79,17 +79,11 @@
         <!-- Projects Section -->
         <section id="projects" class="projects">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Mes <span>Réalisations</span></h2>
-                    <div class="filter-controls">
-                        <button class="filter-btn active" data-filter="all">Tous</button>
-                        <button class="filter-btn" data-filter="architecture">Architecture</button>
-                        <button class="filter-btn" data-filter="ecriture">Écriture</button>
-                        <button class="filter-btn" data-filter="developpement">Développement</button>
-                    </div>
-                </div>
+                <h2 class="section-title">Mes <span>Réalisations</span></h2>
 
-                <div class="projects-grid">
+                <div class="category-block">
+                    <h3 class="category-heading">Architecture</h3>
+                    <div class="projects-grid">
                     <article class="project-card" data-category="architecture">
                         <div class="project-image">
                             <img src="assets/projects/web_tower/web_holding_cover_v2.jpg" alt="Web Holding Tower">
@@ -174,7 +168,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="commercial">
+                    <article class="project-card" data-category="architecture">
                         <div class="project-image">
                             <img src="assets/projects/enem/enem_1.jpg" alt="Concession Enem">
                             <div class="project-info-overlay">
@@ -221,33 +215,45 @@
                             </div>
                         </div>
                     </article>
-
-                    <!-- New Categories Placeholders -->
-                    <article class="project-card" data-category="ecriture">
-                        <div class="project-image">
-                            <img src="assets/writing/book_cameroun.png" alt="Architectures du Cameroun">
-                            <div class="project-info-overlay">
-                                <span class="project-category">Écriture / Édition</span>
-                                <h3 class="project-name">Architectures du Cameroun</h3>
-                                <p class="project-desc">Un ouvrage de référence explorant l'évolution stylistique et structurelle du paysage urbain camerounais.</p>
-                                <a href="#" class="project-link">Bientôt disponible <i class="fas fa-book"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-category="developpement">
-                        <div class="project-image">
-                            <img src="assets/dev/archiviz_app.png" alt="ArchiViz Pro">
-                            <div class="project-info-overlay">
-                                <span class="project-category">Développement / App</span>
-                                <h3 class="project-name">ArchiViz Pro</h3>
-                                <p class="project-desc">Application mobile de visualisation AR permettant d'intégrer des maquettes 3D sur site en temps réel.</p>
-                                <a href="#" class="project-link">En savoir plus <i class="fas fa-code"></i></a>
-                            </div>
-                        </div>
-                    </article>
                 </div>
             </div>
+
+            <div class="category-block">
+                <div class="container">
+                    <h3 class="category-heading">Ecriture</h3>
+                    <div class="projects-grid">
+                        <article class="project-card" data-category="ecriture">
+                            <div class="project-image">
+                                <img src="assets/writing/book_cameroun.png" alt="Architectures du Cameroun">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Écriture / Édition</span>
+                                    <h3 class="project-name">Architectures du Cameroun</h3>
+                                    <p class="project-desc">Un ouvrage de référence explorant l'évolution stylistique et structurelle du paysage urbain camerounais.</p>
+                                    <a href="#" class="project-link">Bientôt disponible <i class="fas fa-book"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="container">
+                    <h3 class="category-heading">Développement</h3>
+                    <div class="projects-grid">
+                        <article class="project-card" data-category="developpement">
+                            <div class="project-image">
+                                <img src="assets/dev/archiviz_app.png" alt="ArchiViz Pro">
+                                <div class="project-info-overlay">
+                                    <span class="project-category">Développement / App</span>
+                                    <h3 class="project-name">ArchiViz Pro</h3>
+                                    <p class="project-desc">Application mobile de visualisation AR permettant d'intégrer des maquettes 3D sur site en temps réel.</p>
+                                    <a href="#" class="project-link">En savoir plus <i class="fas fa-code"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
         </section>
 
         <!-- About Section -->
