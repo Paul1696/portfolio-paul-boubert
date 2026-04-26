@@ -444,7 +444,13 @@ h1, h2, h3, h4 {
 }
 
 .category-heading::after {
-    display: none;
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-primary);
 }
 
 .projects-grid {
