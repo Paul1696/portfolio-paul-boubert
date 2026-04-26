@@ -108,9 +108,13 @@ section {
     background-color: var(--color-primary);
     border-radius: 50%;
     position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 9999;
-    transition: transform 0.1s ease;
+    /* Remove transition for transform to avoid lag */
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    transform: translate(-50%, -50%);
 }
 
 .cursor-follower {
@@ -119,9 +123,13 @@ section {
     border: 1px solid var(--color-primary);
     border-radius: 50%;
     position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 9998;
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+    /* Remove transition for transform to avoid lag */
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
+    transform: translate(-50%, -50%);
 }
 
 /* ===================================

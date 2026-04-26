@@ -27,20 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const animate = () => {
-        // Smooth cursor follow
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
-        followerX += (mouseX - followerX) * 0.1;
-        followerY += (mouseY - followerY) * 0.1;
+        // Smoothing factor for the follower
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
 
         if (cursor) {
-            // Apply scale if hovering, otherwise scale(1)
-            const isHovering = follower?.style.width === '80px';
-            const scale = isHovering ? 1.5 : 1;
-            cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) scale(${scale})`;
+            // Instant dot position
+            cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
         }
         if (follower) {
-            follower.style.transform = `translate3d(${followerX - 16}px, ${followerY - 16}px, 0)`;
+            // Smoothed follower position
+            follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
         }
 
         requestAnimationFrame(animate);
@@ -49,22 +46,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cursor hover effects using event delegation
     const handleMouseEnter = (e) => {
-        const target = e.target.closest('a, button, .filter-btn, .gallery-item, .btn-back');
+        const target = e.target.closest('a, button, .filter-btn, .gallery-item, .btn-back, .project-card');
         if (target) {
-            follower?.style.setProperty('width', '80px');
-            follower?.style.setProperty('height', '80px');
-            follower?.style.setProperty('background', 'rgba(212, 175, 55, 0.1)');
-            follower?.style.setProperty('border-color', 'transparent');
+            if (follower) {
+                follower.style.width = '80px';
+                follower.style.height = '80px';
+                follower.style.background = 'rgba(0, 71, 171, 0.05)';
+                follower.style.borderColor = 'transparent';
+            }
+            if (cursor) {
+                cursor.style.width = '12px';
+                cursor.style.height = '12px';
+            }
         }
     };
 
     const handleMouseLeave = (e) => {
-        const target = e.target.closest('a, button, .filter-btn, .gallery-item, .btn-back');
+        const target = e.target.closest('a, button, .filter-btn, .gallery-item, .btn-back, .project-card');
         if (target) {
-            follower?.style.setProperty('width', '40px');
-            follower?.style.setProperty('height', '40px');
-            follower?.style.setProperty('background', 'transparent');
-            follower?.style.setProperty('border-color', 'var(--color-primary)');
+            if (follower) {
+                follower.style.width = '40px';
+                follower.style.height = '40px';
+                follower.style.background = 'transparent';
+                follower.style.borderColor = 'var(--color-primary)';
+            }
+            if (cursor) {
+                cursor.style.width = '8px';
+                cursor.style.height = '8px';
+            }
         }
     };
 
