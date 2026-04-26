@@ -127,43 +127,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ===================================
-    // Project Animations (Optional)
-    // ===================================
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const projectObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    projectCards.forEach(card => projectObserver.observe(card));
-
-    // ===================================
+    // = ===================================
     // Scroll Reveal Animation
     // ===================================
-    const observerOptions = {
+    const scrollObserverOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, scrollObserverOptions);
 
-    document.querySelectorAll('.fade-in-up, .project-card, .expertise-item').forEach(el => {
-        el.classList.add('fade-in-up');
-        observer.observe(el);
+    document.querySelectorAll('.fade-in-up, .project-card, .expertise-item, .category-block').forEach(el => {
+        if (!el.classList.contains('fade-in-up')) el.classList.add('fade-in-up');
+        revealObserver.observe(el);
     });
 
     // ===================================
@@ -234,5 +217,93 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('visible');
             }, i * 200);
         });
+    });
+
+    // ===================================
+    // Lightbox Functionality
+    // ===================================
+    const createLightbox = () => {
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <img src="" alt="Lightbox Image">
+                <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+                <button class="lightbox-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <button class="lightbox-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+        return lightbox;
+    };
+
+    const lightbox = document.getElementById('lightbox') || createLightbox();
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+    const lightboxNext = lightbox.querySelector('.lightbox-next');
+    let currentGallery = [];
+    let currentIndex = 0;
+
+    const openLightbox = (index, gallery) => {
+        currentGallery = gallery;
+        currentIndex = index;
+        lightboxImg.src = currentGallery[currentIndex].src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    const nextImage = () => {
+        currentIndex = (currentIndex + 1) % currentGallery.length;
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImg.src = currentGallery[currentIndex].src;
+            lightboxImg.style.opacity = '1';
+        }, 200);
+    };
+
+    const prevImage = () => {
+        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImg.src = currentGallery[currentIndex].src;
+            lightboxImg.style.opacity = '1';
+        }, 200);
+    };
+
+    // Attach click events to gallery items
+    document.addEventListener('click', (e) => {
+        const galleryItem = e.target.closest('.gallery-item img');
+        if (galleryItem) {
+            const gallery = Array.from(document.querySelectorAll('.gallery-item img'));
+            const index = gallery.indexOf(galleryItem);
+            openLightbox(index, gallery);
+        }
+        
+        if (e.target.closest('.lightbox-close') || (e.target.id === 'lightbox' && !e.target.closest('.lightbox-content img'))) {
+            closeLightbox();
+        }
+
+        if (e.target.closest('.lightbox-next')) {
+            nextImage();
+        }
+
+        if (e.target.closest('.lightbox-prev')) {
+            prevImage();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
     });
 });

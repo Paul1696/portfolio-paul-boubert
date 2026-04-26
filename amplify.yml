@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    # On peut ajouter une phase d'installation si on utilise des outils de compression
+    # Mais pour du HTML/JS pur, on peut passer directement aux artefacts.
+    build:
+      commands:
+        - echo "Prêt pour le déploiement"
+  artifacts:
+    baseDirectory: /
+    files:
+      - 'index.html'
+      - 'style.css'
+      - 'script.js'
+      - 'profile_paul.jpg'
+      - 'assets/**/*'
+      - 'projects/**/*'
+      - 'CNAME'
+      - '.nojekyll'
+  cache:
+    paths: []
