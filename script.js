@@ -220,6 +220,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===================================
+    // Project Filtering Logic
+    // ===================================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card[data-category="architecture"]');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach((card, index) => {
+                const projectType = card.getAttribute('data-type');
+                
+                if (filterValue === 'all' || projectType === filterValue) {
+                    card.classList.remove('hidden');
+                    card.style.position = 'relative';
+                    // Re-trigger reveal animation if hidden before
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 50);
+                } else {
+                    card.classList.add('hidden');
+                    // Delay setting absolute to allow fade out
+                    setTimeout(() => {
+                        if (card.classList.contains('hidden')) {
+                            card.style.position = 'absolute';
+                        }
+                    }, 600);
+                }
+            });
+        });
+    });
+
+    // ===================================
     // Lightbox Functionality
     // ===================================
     const createLightbox = () => {
