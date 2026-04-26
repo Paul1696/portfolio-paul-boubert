@@ -433,9 +433,9 @@ h1, h2, h3, h4 {
 
 .category-heading {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
     font-weight: 700;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
     color: var(--color-text-main);
     text-transform: uppercase;
