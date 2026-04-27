@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | Paul Boubert - Architecte & Ingénieur Civil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-page {
+            padding-top: 120px;
+            background: var(--color-bg);
+            color: var(--color-text-main);
+        }
+
+        .about-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 8rem;
+        }
+
+        .about-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .about-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .dual-identity {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 8rem;
+        }
+
+        .identity-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 24px;
+            transition: var(--transition-mid);
+        }
+
+        .identity-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px);
+        }
+
+        .identity-card i {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+        }
+
+        .identity-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 8rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 500;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto 8rem auto;
+        }
+
+        .timeline-item {
+            padding-left: 3rem;
+            border-left: 2px solid var(--color-primary);
+            position: relative;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            box-shadow: 0 0 15px var(--color-primary);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .cv-section {
+            text-align: center;
+            padding: 6rem;
+            background: var(--gradient-primary);
+            border-radius: 40px;
+            color: #000;
+            margin-bottom: 8rem;
+        }
+
+        .cv-section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: #000;
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-mid);
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 992px) {
+            .about-hero, .dual-identity {
+                grid-template-columns: 1fr;
+            }
+            .about-text h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body class="loaded">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">PB<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">Accueil</a>
+                <a href="index.html#projects" class="nav-item">Projets</a>
+                <a href="about.html" class="nav-item active">À Propos</a>
+                <a href="index.html#contact" class="nav-item">Contact</a>
+                <a href="https://architecture-creative.ateliersdepaul.com/" class="nav-item">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="about-page container">
+        <section class="about-hero">
+            <div class="about-image-container">
+                <img src="assets/img/architect_bg_fine.png" alt="Paul Boubert">
+                <!-- Suggérer à l'utilisateur de remplacer par sa photo ici -->
+            </div>
+            <div class="about-text">
+                <h1>L'Architecture <br>rencontre l'Ingénierie.</h1>
+                <p>
+                    Je suis Paul Boubert, un professionnel hybride passionné par l'acte de bâtir. Mon approche unique combine la vision esthétique de l'architecte à la rigueur technique de l'ingénieur civil.
+                </p>
+                <p>
+                    Spécialiste du BIM (Building Information Modeling), je m'efforce de transformer des concepts audacieux en structures réalisables, durables et économiquement optimisées. Chaque ligne tracée est une promesse de solidité et chaque volume conçu est une quête d'harmonie urbaine.
+                </p>
+            </div>
+        </section>
+
+        <section class="dual-identity">
+            <div class="identity-card">
+                <i class="fas fa-drafting-pencil"></i>
+                <h3>Conception Architecturale</h3>
+                <p>Création de concepts innovants, gestion des volumes et de la lumière, et intégration paysagère. Mon oeil d'architecte veille à ce que chaque projet raconte une histoire et sublime son environnement.</p>
+            </div>
+            <div class="identity-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Ingénierie Civil & Structure</h3>
+                <p>Dimensionnement, analyse des matériaux et faisabilité technique. Ma formation d'ingénieur garantit la pérennité et la conformité des ouvrages les plus complexes, dès la phase d'esquisse.</p>
+            </div>
+        </section>
+
+        <h2 style="font-size: 3rem; margin-bottom: 3rem; text-align: center;">Expertise Technique</h2>
+        <section class="skills-grid">
+            <div class="skill-tag">BIM Management</div>
+            <div class="skill-tag">Autodesk Revit</div>
+            <div class="skill-tag">Enscape Renders</div>
+            <div class="skill-tag">Calcul de Structure</div>
+            <div class="skill-tag">Coordination de Chantier</div>
+            <div class="skill-tag">Twinmotion</div>
+            <div class="skill-tag">AutoCAD</div>
+            <div class="skill-tag">Bureaux & Résidentiel</div>
+        </section>
+
+        <h2 style="font-size: 3rem; margin-bottom: 3rem; text-align: center;">Mon Parcours</h2>
+        <section class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">2024 - Présent</span>
+                <div class="timeline-content">
+                    <h4>Fondateur de Paul Boubert Studio</h4>
+                    <p>Développement de projets d'envergure mêlant résidentiel de standing et immeubles de bureaux bioclimatiques.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">2021 - 2024</span>
+                <div class="timeline-content">
+                    <h4>Architecte-Ingénieur Freelance</h4>
+                    <p>Collaboration sur des projets tels que l'Immeuble Tonye et la Villa Horizon, avec un focus sur la modélisation BIM.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">2018 - 2021</span>
+                <div class="timeline-content">
+                    <h4>Formation & Débuts</h4>
+                    <p>Obtention de mon diplôme d'Ingénieur Civil et spécialisation en Architecture et Design Urbain.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2>Prêt pour une collaboration ?</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 3rem;">Consultez mon curriculum vitae complet pour découvrir mes références détaillées.</p>
+            <a href="#" class="btn-download"><i class="fas fa-file-download"></i> Télécharger mon CV</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">PB<span>.</span></div>
+            <p>&copy; 2025 Paul Boubert. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
