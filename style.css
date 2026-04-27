@@ -385,7 +385,6 @@ h1, h2, h3, h4 {
 }
 
 .btn-main:hover {
-    transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(var(--color-primary-rgb), 0.2);
 }
 
