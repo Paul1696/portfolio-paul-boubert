@@ -251,25 +251,28 @@ h1, h2, h3, h4 {
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: #f1f4f8;
+    background: #edf2f7;
+    border: 2.5px solid #000;
     border-radius: 50%;
     transition: var(--transition-mid);
+    padding: 2px;
 }
 
 .nav-blog-btn:hover {
-    background: #e1e8f0;
-    transform: translateY(-2px);
+    background: #e2e8f0;
+    transform: scale(1.05);
 }
 
 .blog-icon {
     width: 38px;
     height: auto;
-    color: #1a1a1a;
+    color: #000;
 }
 
 .blog-icon text {
-    font-family: var(--font-heading);
-    letter-spacing: 0.05em;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
 }
 
 .blog-dot {
