@@ -563,7 +563,8 @@ h1, h2, h3, h4 {
     backdrop-filter: blur(10px);
 }
 
-.project-card:hover .project-image img {
+.project-card:hover .project-image img,
+.project-card:hover .project-placeholder-bg {
     transform: scale(1.05);
 }
 
