@@ -668,12 +668,35 @@ body.js-ready .fade-in-up:not(.visible) {
         gap: 1rem !important;
     }
 
+    .about-image-wrapper {
+        margin-bottom: 2rem;
+    }
+
+    .experience-badge {
+        position: relative !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        padding: 1.5rem !important;
+        margin-top: -1rem;
+        z-index: 5;
+    }
+
+    .experience-badge .years { font-size: 2rem !important; }
+    .experience-badge .text { font-size: 0.6rem !important; }
+
+    .about-content .lead { font-size: 1.1rem !important; margin-top: 2rem; }
+
     .contact-card {
         padding: 3rem 1.5rem !important;
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
     }
 
     .social-minimal {
-        gap: 1.5rem !important;
+        gap: 2rem !important;
+        margin-top: 2rem !important;
     }
 
     .footer-bottom {
