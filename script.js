@@ -140,4 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }, i * 200);
         });
     });
+
+    // Contact Button Security
+    const contactBtn = document.querySelector('.contact-trigger');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', () => {
+            console.log('Contact button clicked');
+        });
+    }
 });
